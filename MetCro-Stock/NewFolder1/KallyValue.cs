@@ -32,4 +32,32 @@ namespace MetCro_Stock
             set;
         }
     }
+
+    public class RealTrading
+    {
+        public string StartTrade
+        {
+            get;
+            set;
+        }
+
+        public string EndTrade
+        {
+            get;
+            set;
+        }
+
+        public double OpenShares
+        {
+            get;
+            set;
+        }
+
+        public double PLMoney
+        {
+            get;
+            set;
+        }
+    }
+
 }
