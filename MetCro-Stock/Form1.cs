@@ -19,7 +19,6 @@ namespace MetCro_Stock
 
         private Dictionary<int, List<int>> m_wholeLines = new Dictionary<int, List<int>>();
 
-
         private void ToolStripButton_Layout_Click(object sender, EventArgs e)
         {
             this.LayoutMdi(MdiLayout.TileHorizontal);
@@ -120,6 +119,64 @@ namespace MetCro_Stock
         {
             KallyForm kally = new KallyForm();
             kally.Show();
+        }
+
+        private void ToolStripMenuItem_TradeControl_Click(object sender, EventArgs e)
+        {
+            if(this.tradeUserControl1.Visible)
+            {
+                this.tradeUserControl1.Visible = false;
+                this.tradeUserControl1.Dock = DockStyle.Bottom;
+            }
+            else
+            {
+                this.tradeUserControl1.Visible = true;
+                this.tradeUserControl1.Dock = DockStyle.Bottom;
+            }
+        }
+
+        private void ToolStripMenuItem_Report_Click(object sender, EventArgs e)
+        {
+            ReportForm f = new ReportForm();
+            f.Show();
+        }
+
+        private void ToolStripButton_StartRealMarketGoing_Click(object sender, EventArgs e)
+        {
+            FormRealKLine r = new FormRealKLine();
+            r.TopLevel = false;//设置为非顶级控件
+            r.MdiParent = this;
+            r.Show();
+        }
+
+        private void ComboxItems_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolStripButton_MarketBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolStripButton_MarketBegin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolStripButton_MarketFuture_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolStripButton_AddTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolStripButton_DeCreaseTime_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -63,6 +63,26 @@ namespace MetCro_Stock.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap anniu {
+            get {
+                object obj = ResourceManager.GetObject("anniu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap anniu1 {
+            get {
+                object obj = ResourceManager.GetObject("anniu1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap e18d4c7e8de3337c2e685cbdfbc3c5f {
             get {
                 object obj = ResourceManager.GetObject("e18d4c7e8de3337c2e685cbdfbc3c5f", resourceCulture);
@@ -86,6 +106,16 @@ namespace MetCro_Stock.Properties {
         internal static System.Drawing.Bitmap start {
             get {
                 object obj = ResourceManager.GetObject("start", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap timg {
+            get {
+                object obj = ResourceManager.GetObject("timg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
