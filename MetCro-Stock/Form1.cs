@@ -107,6 +107,13 @@ namespace MetCro_Stock
 
         private void Form_Load(object sender, EventArgs e)
         {
+            //在这里把本地的数据搞进去，获取所有的txt的目录加到toolstrip的combox中
+            List<string> instrumenstList = TxtHolder.HoldInstruments();
+            foreach(string str in instrumenstList)
+            {
+                string fileNameWithoutExtension = System.IO.Path.GetFileName(str);// 没有扩展名的文件名 “Default”
+                this.toolStripComboBox_Instrumens.Items.Add(fileNameWithoutExtension);
+            }
         }
 
         private void ToolStripButton_test_Click(object sender, EventArgs e)
@@ -141,41 +148,109 @@ namespace MetCro_Stock
             f.Show();
         }
 
-        private void ToolStripButton_StartRealMarketGoing_Click(object sender, EventArgs e)
-        {
-            FormRealKLine r = new FormRealKLine();
-            r.TopLevel = false;//设置为非顶级控件
-            r.MdiParent = this;
-            r.Show();
-        }
+        private FormRealKLine m_realLine = null;
 
         private void ComboxItems_Click(object sender, EventArgs e)
         {
-
+         
         }
 
         private void ToolStripButton_MarketBack_Click(object sender, EventArgs e)
         {
-
+            this.m_realLine.Clock.Enabled = false;
+            this.m_realLine.Clock.Stop();
         }
 
         private void ToolStripButton_MarketBegin_Click(object sender, EventArgs e)
         {
+            //如果重复点击，先把clock停下来，然后重置开始
+            if (m_realLine == null)
+            {
+                //打开并同时加载数据
+                m_realLine = new FormRealKLine(m_marketDataList);
+                m_realLine.TopLevel = false;//设置为非顶级控件
+                m_realLine.MdiParent = this;
 
+                this.m_realLine.Clock.Enabled = false;
+                this.m_realLine.Clock.Stop();
+
+                m_realLine.Show();
+            }
+            else
+            {
+                //直接清空FormChart内的数据，然后加载
+                this.m_realLine.Clock.Enabled = false;
+                this.m_realLine.Clock.Stop();
+
+                m_realLine.ClearData();
+                m_realLine.Updata(m_marketDataList);
+            }
+
+            int minSec = 0;
+            int.TryParse(this.toolStripTextBox_Time.Text, out minSec);
+
+            this.m_realLine.Clock.Interval = minSec;
+            this.m_realLine.Clock.Enabled = true;
+            this.m_realLine.Clock.Start();
         }
 
         private void ToolStripButton_MarketFuture_Click(object sender, EventArgs e)
         {
-
+            this.m_realLine.Clock.Enabled = true;
+            this.m_realLine.Clock.Start();
         }
 
         private void ToolStripButton_AddTime_Click(object sender, EventArgs e)
         {
+            int i = 0;
+            int.TryParse(this.toolStripTextBox_Time.Text, out i);
 
+            this.m_realLine.Clock.Interval = i;
         }
 
         private void ToolStripButton_DeCreaseTime_Click(object sender, EventArgs e)
         {
+            int i = 0;
+            int.TryParse(this.toolStripTextBox_Time.Text, out i);
+
+            this.m_realLine.Clock.Interval = i;
+        }
+
+        private List<RealMarketData> m_marketDataList = new List<RealMarketData>();
+        private void SelIndexChanged(object sender, EventArgs e)
+        {
+            if (this.toolStripComboBox_Instrumens.SelectedItem == null
+             || this.toolStripComboBox_Instrumens.SelectedItem.ToString() == "") return;
+            string name = this.toolStripComboBox_Instrumens.SelectedItem.ToString();
+            if (name != "" || name != "null")
+            {
+                string insName = name;
+
+                List<string> stringList = TxtHolder.ReadTxt(insName);
+                List<RealMarketData> marketDataList = TxtHolder.TransToStandardInfoList(stringList);
+                m_marketDataList = marketDataList;
+            }
+        }
+
+        private void Scroll_Event(object sender, EventArgs e)
+        {
+        }
+
+        private void ValueChanged(object sender, EventArgs e)
+        {
+            int timeIn = trackBar1.Value;
+            this.m_realLine.Clock.Interval = timeIn;
+
+        }
+
+        private void ToolStripButton_MarketFuture_Click_1(object sender, EventArgs e)
+        {
+            this.m_realLine.GoAheadOneLine();
+        }
+
+        private void ToolStripButton_MarketBack_Click_1(object sender, EventArgs e)
+        {
+            this.m_realLine.GoBackOneLine();
 
         }
     }

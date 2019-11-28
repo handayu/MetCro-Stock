@@ -28,3 +28,5 @@ C:\Users\Administrator\Desktop\MetCro-Stock\MetCro-Stock\obj\Debug\MetCro_Stock.
 C:\Users\Administrator\Desktop\MetCro-Stock\MetCro-Stock\obj\Debug\MetCro_Stock.TradeUserControl.resources
 C:\Users\Administrator\Desktop\MetCro-Stock\MetCro-Stock\obj\Debug\MetCro_Stock.FormRealKLine.resources
 C:\Users\Administrator\Desktop\MetCro-Stock\MetCro-Stock\obj\Debug\MetCro_Stock.ReportForm.resources
+C:\Users\Administrator\Desktop\MetCro-Stock\MetCro-Stock\bin\Debug\NPlot.dll
+C:\Users\Administrator\Desktop\MetCro-Stock\MetCro-Stock\obj\Debug\MetCro-Stock.csproj.CopyComplete

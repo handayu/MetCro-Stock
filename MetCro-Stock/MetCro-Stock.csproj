@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NPlot, Version=0.9.10.0, Culture=neutral, PublicKeyToken=4eda430eb4395eb1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPlot.0.9.10.0\lib\net20\NPlot.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -98,6 +101,7 @@
     <Compile Include="TreeViewForm.Designer.cs">
       <DependentUpon>TreeViewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TxtHolder.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +136,7 @@
     <EmbeddedResource Include="TreeViewForm.resx">
       <DependentUpon>TreeViewForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -159,6 +164,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image\anniu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\timg %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\timg %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\timg %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\timg %284%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

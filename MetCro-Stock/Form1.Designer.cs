@@ -42,23 +42,23 @@
             this.ToolStripMenuItem_Report = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripComboBox_Instrumens = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripLabel_ItemsMarkets = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox_Time = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox_Time = new System.Windows.Forms.ToolStripTextBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.tradeUserControl1 = new MetCro_Stock.TradeUserControl();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton_MarketBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_MarketBegin = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_MarketDataStop = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_MarketGoon = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_MarketBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_MarketFuture = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton_AddTime = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton_DeCreaseTime = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_Layout = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_Start = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_Kally = new System.Windows.Forms.ToolStripButton();
-            this.tradeUserControl1 = new MetCro_Stock.TradeUserControl();
-            this.toolStripButton_StartRealMarketGoing = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -158,15 +158,13 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripComboBox_Instrumens,
-            this.toolStripLabel_ItemsMarkets,
-            this.toolStripButton_MarketBack,
             this.toolStripButton_MarketBegin,
-            this.toolStripButton_MarketFuture,
             this.toolStripButton6,
-            this.toolStripButton_AddTime,
             this.toolStripTextBox_Time,
-            this.toolStripButton_DeCreaseTime,
-            this.toolStripButton_StartRealMarketGoing});
+            this.toolStripButton_MarketDataStop,
+            this.toolStripButton_MarketGoon,
+            this.toolStripButton_MarketBack,
+            this.toolStripButton_MarketFuture});
             this.toolStrip2.Location = new System.Drawing.Point(0, 68);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(918, 32);
@@ -177,23 +175,43 @@
             // 
             this.toolStripComboBox_Instrumens.Name = "toolStripComboBox_Instrumens";
             this.toolStripComboBox_Instrumens.Size = new System.Drawing.Size(121, 32);
+            this.toolStripComboBox_Instrumens.SelectedIndexChanged += new System.EventHandler(this.SelIndexChanged);
             this.toolStripComboBox_Instrumens.Click += new System.EventHandler(this.ComboxItems_Click);
-            // 
-            // toolStripLabel_ItemsMarkets
-            // 
-            this.toolStripLabel_ItemsMarkets.Name = "toolStripLabel_ItemsMarkets";
-            this.toolStripLabel_ItemsMarkets.Size = new System.Drawing.Size(86, 29);
-            this.toolStripLabel_ItemsMarkets.Text = "总条目数:";
-            // 
-            // toolStripTextBox_Time
-            // 
-            this.toolStripTextBox_Time.Name = "toolStripTextBox_Time";
-            this.toolStripTextBox_Time.Size = new System.Drawing.Size(100, 32);
             // 
             // toolStripButton6
             // 
             this.toolStripButton6.Name = "toolStripButton6";
             this.toolStripButton6.Size = new System.Drawing.Size(6, 32);
+            // 
+            // toolStripTextBox_Time
+            // 
+            this.toolStripTextBox_Time.Name = "toolStripTextBox_Time";
+            this.toolStripTextBox_Time.Size = new System.Drawing.Size(100, 32);
+            this.toolStripTextBox_Time.Text = "1000";
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.AutoSize = false;
+            this.trackBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.trackBar1.Location = new System.Drawing.Point(0, 100);
+            this.trackBar1.Maximum = 10000;
+            this.trackBar1.Minimum = 2000;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(918, 29);
+            this.trackBar1.SmallChange = 1000;
+            this.trackBar1.TabIndex = 9;
+            this.trackBar1.Value = 2000;
+            this.trackBar1.Scroll += new System.EventHandler(this.Scroll_Event);
+            this.trackBar1.ValueChanged += new System.EventHandler(this.ValueChanged);
+            // 
+            // tradeUserControl1
+            // 
+            this.tradeUserControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tradeUserControl1.Location = new System.Drawing.Point(0, 304);
+            this.tradeUserControl1.Name = "tradeUserControl1";
+            this.tradeUserControl1.Size = new System.Drawing.Size(918, 142);
+            this.tradeUserControl1.TabIndex = 4;
+            this.tradeUserControl1.Visible = false;
             // 
             // toolStripButton1
             // 
@@ -202,16 +220,6 @@
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(0, 29);
-            // 
-            // toolStripButton_MarketBack
-            // 
-            this.toolStripButton_MarketBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton_MarketBack.Image = global::MetCro_Stock.Properties.Resources.anniu;
-            this.toolStripButton_MarketBack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_MarketBack.Name = "toolStripButton_MarketBack";
-            this.toolStripButton_MarketBack.Size = new System.Drawing.Size(28, 29);
-            this.toolStripButton_MarketBack.Text = "toolStripButton3";
-            this.toolStripButton_MarketBack.Click += new System.EventHandler(this.ToolStripButton_MarketBack_Click);
             // 
             // toolStripButton_MarketBegin
             // 
@@ -223,35 +231,45 @@
             this.toolStripButton_MarketBegin.Text = "toolStripButton5";
             this.toolStripButton_MarketBegin.Click += new System.EventHandler(this.ToolStripButton_MarketBegin_Click);
             // 
+            // toolStripButton_MarketDataStop
+            // 
+            this.toolStripButton_MarketDataStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_MarketDataStop.Image = global::MetCro_Stock.Properties.Resources.timg__1_;
+            this.toolStripButton_MarketDataStop.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_MarketDataStop.Name = "toolStripButton_MarketDataStop";
+            this.toolStripButton_MarketDataStop.Size = new System.Drawing.Size(28, 29);
+            this.toolStripButton_MarketDataStop.Text = "toolStripButton3";
+            this.toolStripButton_MarketDataStop.Click += new System.EventHandler(this.ToolStripButton_MarketBack_Click);
+            // 
+            // toolStripButton_MarketGoon
+            // 
+            this.toolStripButton_MarketGoon.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_MarketGoon.Image = global::MetCro_Stock.Properties.Resources.timg__2_;
+            this.toolStripButton_MarketGoon.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_MarketGoon.Name = "toolStripButton_MarketGoon";
+            this.toolStripButton_MarketGoon.Size = new System.Drawing.Size(28, 29);
+            this.toolStripButton_MarketGoon.Text = "toolStripButton2";
+            this.toolStripButton_MarketGoon.Click += new System.EventHandler(this.ToolStripButton_MarketFuture_Click);
+            // 
+            // toolStripButton_MarketBack
+            // 
+            this.toolStripButton_MarketBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_MarketBack.Image = global::MetCro_Stock.Properties.Resources.timg__4_;
+            this.toolStripButton_MarketBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_MarketBack.Name = "toolStripButton_MarketBack";
+            this.toolStripButton_MarketBack.Size = new System.Drawing.Size(28, 29);
+            this.toolStripButton_MarketBack.Text = "toolStripButton3";
+            this.toolStripButton_MarketBack.Click += new System.EventHandler(this.ToolStripButton_MarketBack_Click_1);
+            // 
             // toolStripButton_MarketFuture
             // 
             this.toolStripButton_MarketFuture.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton_MarketFuture.Image = global::MetCro_Stock.Properties.Resources.anniu1;
+            this.toolStripButton_MarketFuture.Image = global::MetCro_Stock.Properties.Resources.timg__3_;
             this.toolStripButton_MarketFuture.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_MarketFuture.Name = "toolStripButton_MarketFuture";
             this.toolStripButton_MarketFuture.Size = new System.Drawing.Size(28, 29);
             this.toolStripButton_MarketFuture.Text = "toolStripButton2";
-            this.toolStripButton_MarketFuture.Click += new System.EventHandler(this.ToolStripButton_MarketFuture_Click);
-            // 
-            // toolStripButton_AddTime
-            // 
-            this.toolStripButton_AddTime.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton_AddTime.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_AddTime.Image")));
-            this.toolStripButton_AddTime.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_AddTime.Name = "toolStripButton_AddTime";
-            this.toolStripButton_AddTime.Size = new System.Drawing.Size(23, 29);
-            this.toolStripButton_AddTime.Text = "+";
-            this.toolStripButton_AddTime.Click += new System.EventHandler(this.ToolStripButton_AddTime_Click);
-            // 
-            // toolStripButton_DeCreaseTime
-            // 
-            this.toolStripButton_DeCreaseTime.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton_DeCreaseTime.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_DeCreaseTime.Image")));
-            this.toolStripButton_DeCreaseTime.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_DeCreaseTime.Name = "toolStripButton_DeCreaseTime";
-            this.toolStripButton_DeCreaseTime.Size = new System.Drawing.Size(23, 29);
-            this.toolStripButton_DeCreaseTime.Text = "-";
-            this.toolStripButton_DeCreaseTime.Click += new System.EventHandler(this.ToolStripButton_DeCreaseTime_Click);
+            this.toolStripButton_MarketFuture.Click += new System.EventHandler(this.ToolStripButton_MarketFuture_Click_1);
             // 
             // toolStripButton_Layout
             // 
@@ -283,30 +301,12 @@
             this.toolStripButton_Kally.Text = "Kally资金管理";
             this.toolStripButton_Kally.Click += new System.EventHandler(this.ToolStripButton_Kally_Click);
             // 
-            // tradeUserControl1
-            // 
-            this.tradeUserControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tradeUserControl1.Location = new System.Drawing.Point(0, 304);
-            this.tradeUserControl1.Name = "tradeUserControl1";
-            this.tradeUserControl1.Size = new System.Drawing.Size(918, 142);
-            this.tradeUserControl1.TabIndex = 4;
-            this.tradeUserControl1.Visible = false;
-            // 
-            // toolStripButton_StartRealMarketGoing
-            // 
-            this.toolStripButton_StartRealMarketGoing.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton_StartRealMarketGoing.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_StartRealMarketGoing.Image")));
-            this.toolStripButton_StartRealMarketGoing.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_StartRealMarketGoing.Name = "toolStripButton_StartRealMarketGoing";
-            this.toolStripButton_StartRealMarketGoing.Size = new System.Drawing.Size(50, 29);
-            this.toolStripButton_StartRealMarketGoing.Text = "启动";
-            this.toolStripButton_StartRealMarketGoing.Click += new System.EventHandler(this.ToolStripButton_StartRealMarketGoing_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 446);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.tradeUserControl1);
             this.Controls.Add(this.Label1);
@@ -324,6 +324,7 @@
             this.menuStrip1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,15 +350,14 @@
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripLabel toolStripButton1;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox_Instrumens;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel_ItemsMarkets;
-        private System.Windows.Forms.ToolStripButton toolStripButton_MarketBack;
+        private System.Windows.Forms.ToolStripButton toolStripButton_MarketDataStop;
         private System.Windows.Forms.ToolStripButton toolStripButton_MarketBegin;
-        private System.Windows.Forms.ToolStripButton toolStripButton_MarketFuture;
+        private System.Windows.Forms.ToolStripButton toolStripButton_MarketGoon;
         private System.Windows.Forms.ToolStripSeparator toolStripButton6;
-        private System.Windows.Forms.ToolStripLabel toolStripButton_AddTime;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox_Time;
-        private System.Windows.Forms.ToolStripButton toolStripButton_DeCreaseTime;
-        private System.Windows.Forms.ToolStripButton toolStripButton_StartRealMarketGoing;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.ToolStripButton toolStripButton_MarketFuture;
+        private System.Windows.Forms.ToolStripButton toolStripButton_MarketBack;
     }
 }
 
